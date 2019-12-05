@@ -4,8 +4,8 @@ import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import './assets/normalize.css';
 import './assets/style.css';
-import mainReducer from './reducer';
-import App from './app';
+import mainReducer from './reducers';
+import App from './components/app';
 import generateId from './assets/utils';
 
 const INITIAL_STATE = {
@@ -14,7 +14,7 @@ const INITIAL_STATE = {
     { bookId: generateId(), title: 'Zodiac Academy', category: 'kids' },
     {
       bookId: generateId(),
-      title: 'The Cilantro Diaries',
+      title: 'The Code in react',
       category: 'learning',
     },
   ],

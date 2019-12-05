@@ -1,11 +1,11 @@
 {
   "category": [
-    { "id": 1, "value": "Action" },
-    { "id": 2, "value": "Biography" },
-    { "id": 3, "value": "History" },
-    { "id": 4, "value": "Horror" },
-    { "id": 5, "value": "Kids" },
-    { "id": 6, "value": "Learning" },
-    { "id": 6, "value": "Sci-Fi" }
+    { "id": 1, "value": "action" },
+    { "id": 2, "value": "biography" },
+    { "id": 3, "value": "history" },
+    { "id": 4, "value": "horror" },
+    { "id": 5, "value": "kids" },
+    { "id": 6, "value": "learning" },
+    { "id": 7, "value": "sci-Fi" }
   ]
 }

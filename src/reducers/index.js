@@ -1,5 +1,5 @@
-import books from 'books.js';
 import { combineReducers } from 'redux';
+import books from './books';
 
 export default combineReducers({
   books,

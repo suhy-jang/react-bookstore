@@ -3,15 +3,20 @@ import { connect } from 'react-redux';
 import { removeBook } from '../actions';
 import Book from '../components/book';
 
-const BooksList = () => {
+const BooksList = ({ books }) => {
+  const renderBooks = () => {
+    return books.map(book => <Book key={book.bookId} {...book} />);
+  };
   return (
     <table className="books-list">
-      <tr>
-        <th>Book ID</th>
-        <th>title</th>
-        <th>category</th>
-      </tr>
-      <Book title="code in react" category="programming" />
+      <thead>
+        <tr>
+          <th>Book ID</th>
+          <th>title</th>
+          <th>category</th>
+        </tr>
+      </thead>
+      <tbody>{renderBooks()}</tbody>
     </table>
   );
 };
