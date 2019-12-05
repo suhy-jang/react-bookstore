@@ -1,4 +1,6 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { removeBook, changeFilter } from '../actions';
 
 const BooksList = () => {
   return (
@@ -17,4 +19,7 @@ const BooksList = () => {
   );
 };
 
-export default BooksList;
+export default connect(
+  ({ books, filter }) => ({ books, filter }),
+  { removeBook, changeFilter },
+)(BooksList);
