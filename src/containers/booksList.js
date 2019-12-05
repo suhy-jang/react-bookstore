@@ -4,9 +4,13 @@ import PropTypes from 'prop-types';
 import { removeBook } from '../actions';
 import Book from '../components/book';
 
-const BooksList = ({ books }) => {
+const BooksList = ({ books, removeBook }) => {
+  const handleRemoveBook = (book) => {
+    removeBook(book);
+  };
+
   const renderBooks = () => {
-    return books.map(book => <Book key={book.bookId} {...book} />);
+    return books.map(book => <Book key={book.bookId} {...book} remove={() => handleRemoveBook(book)} />);
   };
   return (
     <table className="books-list">
