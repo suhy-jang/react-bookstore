@@ -2,10 +2,10 @@ import React from 'react';
 
 const Book = ({ title, category }) => {
   return (
-    <div className="book">
-      <div className="title">{title}</div>
-      <diiv className="category">{category}</diiv>
-    </div>
+    <tr className="book">
+      <td className="title">{title}</td>
+      <td className="category">{category}</td>
+    </tr>
   );
 };
 
