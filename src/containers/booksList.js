@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { removeBook, changeFilter } from '../actions';
+import Book from '../components/book';
 
 const BooksList = () => {
   return (
@@ -11,9 +12,7 @@ const BooksList = () => {
         <th>category</th>
       </tr>
       <tr>
-        <td>1</td>
-        <td>code in react</td>
-        <td>programming</td>
+        <td><Book title="code in react" category="programming" /></td>
       </tr>
     </table>
   );
