@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import { removeBook } from '../actions';
 import Book from '../components/book';
 
@@ -19,6 +20,19 @@ const BooksList = ({ books }) => {
       <tbody>{renderBooks()}</tbody>
     </table>
   );
+};
+
+BooksList.defaultProps = { books: [{}] };
+
+BooksList.propTypes = {
+  books: PropTypes.arrayOf(
+    PropTypes.shape({
+      bookId: PropTypes.number.isRequired,
+      title: PropTypes.string.isRequired,
+      category: PropTypes.string.isRequired,
+    }),
+  ),
+  removeBook: PropTypes.func.isRequired,
 };
 
 export default connect(

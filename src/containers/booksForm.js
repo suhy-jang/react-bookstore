@@ -1,7 +1,45 @@
-import React from 'react';
-import { category } from '../assets/manifest.json';
+import React, { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { createBook } from '../actions';
+import options from '../assets/manifest.json';
+import generateId from '../assets/utils';
 
-const BooksForm = () => {
+const BooksForm = ({ createBook }) => {
+  const [title, setTitle] = useState('');
+  const [category, setCategory] = useState('');
+  const [blank, setBlank] = useState(false);
+
+  useEffect(() => {
+    if (title && category) {
+      setBlank(false);
+    }
+  }, [title, category]);
+
+  const handleChange = ({ target }) => {
+    const { name, value } = target;
+    if (name === 'title') setTitle(value);
+    if (name === 'category') setCategory(value);
+  };
+
+  const checkBlank = () => {
+    if (!title || !category) {
+      setBlank(true);
+      return true;
+    }
+    return false;
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    if (checkBlank()) return;
+
+    const newBook = { bookId: generateId(), title, category };
+    createBook(newBook);
+    setTitle('');
+    setCategory('');
+  };
+
   const renderOption = (data) => {
     const { id, value } = data;
     return (
@@ -12,12 +50,28 @@ const BooksForm = () => {
   };
 
   return (
-    <form>
-      <input placeholder="Book title" />
-      <select>{category.map(data => renderOption(data))}</select>
-      <button>Submit</button>
+    <form onSubmit={handleSubmit}>
+      <input
+        name="title"
+        placeholder="Book title"
+        onChange={handleChange}
+        value={title}
+      />
+      <select name="category" value={category} onChange={handleChange}>
+        <option value="">__Choose_Category__</option>
+        {options.category.map(data => renderOption(data))}
+      </select>
+      <button>Add book</button>
+      <div>{blank ? 'It needs to be filled with title and category' : ''}</div>
     </form>
   );
 };
 
-export default BooksForm;
+BooksForm.propTypes = {
+  createBook: PropTypes.func.isRequired,
+};
+
+export default connect(
+  null,
+  { createBook },
+)(BooksForm);
