@@ -24,8 +24,9 @@ const BooksList = ({ books, removeBook, filter, changeFilter }) => {
         <thead>
           <tr>
             <th>Book ID</th>
-            <th>title</th>
-            <th>category</th>
+            <th>Title</th>
+            <th>Category</th>
+            <th>Setting</th>
           </tr>
         </thead>
         <tbody>

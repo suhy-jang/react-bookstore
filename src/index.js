@@ -7,7 +7,7 @@ import './assets/style.css';
 import './assets/table.css';
 import mainReducer from './reducers';
 import App from './components/app';
-import generateId from './assets/utils';
+import { generateId } from './assets/utils';
 
 const INITIAL_STATE = {
   books: [

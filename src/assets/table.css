@@ -60,12 +60,12 @@ th {
     content: 'Book ID';
   }
   td:nth-of-type(2):before {
-    content: 'title';
+    content: 'Title';
   }
   td:nth-of-type(3):before {
-    content: 'category';
+    content: 'Category';
   }
   td:nth-of-type(4):before {
-    content: 'setting';
+    content: 'Setting';
   }
 }

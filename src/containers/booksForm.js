@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { createBook } from '../actions';
 import options from '../assets/manifest.json';
-import generateId from '../assets/utils';
+import { generateId, capitalize } from '../assets/utils';
 
 const BooksForm = ({ createBook }) => {
   const [title, setTitle] = useState('');
@@ -44,13 +44,14 @@ const BooksForm = ({ createBook }) => {
     const { id, value } = data;
     return (
       <option key={id} value={value}>
-        {value}
+        {capitalize(value)}
       </option>
     );
   };
 
   return (
     <form onSubmit={handleSubmit} className="add-book">
+      <h4 className="title">ADD NEW BOOK</h4>
       <input
         name="title"
         placeholder="Book title"
@@ -58,11 +59,16 @@ const BooksForm = ({ createBook }) => {
         value={title}
         className="title"
       />
-      <select name="category" value={category} onChange={handleChange} className="category">
+      <select
+        name="category"
+        value={category}
+        onChange={handleChange}
+        className="category"
+      >
         <option value="">__Choose_Category__</option>
         {options.category.map(data => renderOption(data))}
       </select>
-      <button>Add book</button>
+      <button>ADD BOOK</button>
       <div>{blank ? 'It needs to be filled with title and category' : ''}</div>
     </form>
   );
