@@ -12,9 +12,9 @@ const CategoryFilter = ({ filter, handleChange }) => {
     );
   };
   return (
-    <div>
-      <h4>Category Search</h4>
-      <select name="category" value={filter} onChange={handleChange}>
+    <div className="filter">
+      <h4 className="title">Category Search</h4>
+      <select name="category" value={filter} onChange={handleChange} className="category">
         <option value="all">All</option>
         {options.category.map(data => renderOption(data))}
       </select>

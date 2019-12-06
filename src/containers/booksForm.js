@@ -50,14 +50,15 @@ const BooksForm = ({ createBook }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className="add-book">
       <input
         name="title"
         placeholder="Book title"
         onChange={handleChange}
         value={title}
+        className="title"
       />
-      <select name="category" value={category} onChange={handleChange}>
+      <select name="category" value={category} onChange={handleChange} className="category">
         <option value="">__Choose_Category__</option>
         {options.category.map(data => renderOption(data))}
       </select>
