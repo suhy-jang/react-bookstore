@@ -57,7 +57,7 @@ const BooksForm = ({ createBook }) => {
         placeholder="Book title"
         onChange={handleChange}
         value={title}
-        className="title"
+        className="lesson-panel title"
       />
       <select
         name="category"
@@ -65,12 +65,14 @@ const BooksForm = ({ createBook }) => {
         onChange={handleChange}
         className="category"
       >
-        <option value="">__Choose_Category__</option>
+        <option value="">Category</option>
         {options.category.map(data => renderOption(data))}
       </select>
-      <button>ADD BOOK</button>
+      <button className="rectangle-2">
+        <div className="submit mx-auto">ADD BOOK</div>
+      </button>
       <div className="alert">
-        {blank ? 'It needs to be filled with title and category' : ''}
+        {blank ? 'Fill in with title and category' : ''}
       </div>
     </form>
   );
