@@ -1,0 +1,140 @@
+body {
+  font: 500 14px/1.2 Montserrat;
+}
+
+.app {
+  max-width: 1400px;
+  margin-bottom: 3rem;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+.app .nav-bar,
+.books-list,
+.app > form {
+  max-width: 1200px;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.nav-bar .title {
+  color: #b1560f;
+}
+
+.filter {
+  padding: 0.67em 0;
+}
+
+.filter .title {
+  padding-right: 1rem;
+  display: inline-block;
+}
+
+.book {
+  border: 1px solid #e8e8e8;
+  padding: 1.5rem;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border-radius: 4px;
+  background-color: #fff;
+  color: #121212;
+}
+
+.book .title {
+  font-weight: bold;
+}
+
+.remove button {
+  border: 0;
+  box-sizing: border-box;
+  padding: 10px 5px;
+}
+
+.remove button:hover {
+  cursor: pointer;
+}
+
+.add-book {
+  margin-top: 1.5rem;
+}
+
+.add-book > .title {
+  letter-spacing: -0.18px;
+  color: #888;
+}
+
+.add-book input.title {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 10px;
+}
+
+.add-book input.title,
+.add-book .category {
+  height: 45px;
+  border: 1px solid #e8e8e8;
+  border-radius: 4px;
+  background-color: #fff;
+  margin-bottom: 1rem;
+}
+
+.add-book button {
+  height: 45px;
+  border: 1px solid #e8e8e8;
+  width: 184px;
+  border-radius: 3px;
+  background-color: #b1560f;
+  font: 700 13px RobotoSlab;
+  letter-spacing: 0.5px;
+  box-shadow: 0 0 60px 0 var(--black-5);
+  color: #fff;
+  margin-left: 1rem;
+}
+
+.alert {
+  font: 700 14px RobotoSlab;
+  color: #fd6a02;
+}
+
+@media (min-width: 760px) {
+  .nav-bar .title {
+    width: 350px;
+    position: absolute;
+  }
+
+  .book .title {
+    font: 700 20px RobotoSlab;
+    width: calc(100vw - 250px);
+    text-align: center;
+    letter-spacing: -0.2px;
+  }
+
+  .book .remove {
+    font: 300 14px RobotoSlab;
+    width: 50px;
+    text-align: right;
+    opacity: 0.5;
+    color: #4386bf;
+  }
+
+  .book .book-id,
+  .book .category,
+  .book .setting {
+    font: 700 14px Montserrat;
+    width: 100px;
+    opacity: 0.5;
+  }
+
+  .filter {
+    margin-left: 350px;
+  }
+
+  .add-book input.title {
+    width: calc(100% - 389px);
+  }
+
+  .add-book .category {
+    margin-left: 1rem;
+  }
+}

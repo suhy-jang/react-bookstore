@@ -4,6 +4,7 @@ import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import './assets/normalize.css';
 import './assets/style.css';
+import './assets/table.css';
 import mainReducer from './reducers';
 import App from './components/app';
 import generateId from './assets/utils';
