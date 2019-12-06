@@ -69,7 +69,9 @@ const BooksForm = ({ createBook }) => {
         {options.category.map(data => renderOption(data))}
       </select>
       <button>ADD BOOK</button>
-      <div>{blank ? 'It needs to be filled with title and category' : ''}</div>
+      <div className="alert">
+        {blank ? 'It needs to be filled with title and category' : ''}
+      </div>
     </form>
   );
 };
