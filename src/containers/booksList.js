@@ -1,28 +1,50 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { removeBook } from '../actions';
+import { removeBook, changeFilter } from '../actions';
 import Book from '../components/book';
+import CategoryFilter from '../components/categoryFilter';
 
-const BooksList = ({ books, removeBook }) => {
+const BooksList = ({ books, removeBook, filter, changeFilter }) => {
   const handleRemoveBook = (book) => {
     removeBook(book);
   };
 
+  const handleFilterChange = ({ target: { value } }) => {
+    changeFilter(value.toLowerCase());
+  };
+
   const renderBooks = () => {
-    return books.map(book => <Book key={book.bookId} {...book} remove={() => handleRemoveBook(book)} />);
+    const filteredBooks
+      = filter === 'all'
+        ? books
+        : books.filter(({ category }) => category === filter);
+    return (
+      <table className="books-list">
+        <thead>
+          <tr>
+            <th>Book ID</th>
+            <th>title</th>
+            <th>category</th>
+          </tr>
+        </thead>
+        <tbody>
+          {filteredBooks.map(book => (
+            <Book
+              key={book.bookId}
+              {...book}
+              remove={() => handleRemoveBook(book)}
+            />
+          ))}
+        </tbody>
+      </table>
+    );
   };
   return (
-    <table className="books-list">
-      <thead>
-        <tr>
-          <th>Book ID</th>
-          <th>title</th>
-          <th>category</th>
-        </tr>
-      </thead>
-      <tbody>{renderBooks()}</tbody>
-    </table>
+    <div>
+      <CategoryFilter filter={filter} handleChange={handleFilterChange} />
+      {renderBooks()}
+    </div>
   );
 };
 
@@ -36,10 +58,12 @@ BooksList.propTypes = {
       category: PropTypes.string.isRequired,
     }),
   ),
+  filter: PropTypes.string.isRequired,
   removeBook: PropTypes.func.isRequired,
+  changeFilter: PropTypes.func.isRequired,
 };
 
 export default connect(
-  ({ books }) => ({ books }),
-  { removeBook },
+  ({ books, filter }) => ({ books, filter }),
+  { removeBook, changeFilter },
 )(BooksList);
