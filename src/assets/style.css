@@ -119,6 +119,7 @@ body {
   min-height: 29px;
   letter-spacing: -0.2px;
   color: #121212;
+  margin-bottom: 15px;
 }
 
 .book .remove {
@@ -265,6 +266,10 @@ button.simulation-button:hover {
   .books-list {
     padding-left: 50px;
     padding-right: 50px;
+  }
+
+  .book .title {
+    margin-bottom: 0;
   }
 
   .filter {
