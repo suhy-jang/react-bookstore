@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { createBook } from '../actions';
 import options from '../assets/manifest.json';
-import generateId from '../assets/utils';
+import { generateId, capitalize } from '../assets/utils';
 
 const BooksForm = ({ createBook }) => {
   const [title, setTitle] = useState('');
@@ -44,25 +44,36 @@ const BooksForm = ({ createBook }) => {
     const { id, value } = data;
     return (
       <option key={id} value={value}>
-        {value}
+        {capitalize(value)}
       </option>
     );
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className="add-book">
+      <h4 className="title">ADD NEW BOOK</h4>
       <input
         name="title"
         placeholder="Book title"
         onChange={handleChange}
         value={title}
+        className="lesson-panel title"
       />
-      <select name="category" value={category} onChange={handleChange}>
-        <option value="">__Choose_Category__</option>
+      <select
+        name="category"
+        value={category}
+        onChange={handleChange}
+        className="category"
+      >
+        <option value="">Category</option>
         {options.category.map(data => renderOption(data))}
       </select>
-      <button>Add book</button>
-      <div>{blank ? 'It needs to be filled with title and category' : ''}</div>
+      <button className="rectangle-2">
+        <div className="submit mx-auto">ADD BOOK</div>
+      </button>
+      <div className="alert">
+        {blank ? 'Fill in with title and category' : ''}
+      </div>
     </form>
   );
 };

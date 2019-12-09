@@ -1,20 +1,26 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import options from '../assets/manifest.json';
+import { capitalize } from '../assets/utils';
 
 const CategoryFilter = ({ filter, handleChange }) => {
   const renderOption = (data) => {
     const { id, value } = data;
     return (
       <option key={id} value={value}>
-        {value}
+        {capitalize(value)}
       </option>
     );
   };
   return (
-    <div>
-      <h4>Category Search</h4>
-      <select name="category" value={filter} onChange={handleChange}>
+    <div className="filter">
+      <h4 className="title">Category Search</h4>
+      <select
+        name="category"
+        value={filter}
+        onChange={handleChange}
+        className="category"
+      >
         <option value="all">All</option>
         {options.category.map(data => renderOption(data))}
       </select>
